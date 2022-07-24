@@ -1,0 +1,93 @@
+<section class="row">
+  <div class="col-md-4 offset-2">
+    <!-- do for loop of interpolation cartProducts from cart component -->
+    <div class="row" *ngFor="let product of cartProducts; let index = index">
+      <div class="col-md-5 col-sm-12 my-5">
+        <img
+          src="{{ product.item.url }}"
+          (click)="deleteProduct(index)"
+          alt=""
+          class="img-fluid"
+        />
+      </div>
+      <div class="col-md-6 col-sm-12 offset-1 detail-container">
+        <div class="info detail-container">
+          <ul class="list-unstyled">
+            <h4>{{ product.item.name }}</h4>
+            <li>{{ product.item.description }}</li>
+            <li>${{ product.item.price }}</li>
+            <div class="input-group mb-3 w-75">
+              <label class="mt-1 me-1" for="inputGroupFile01">Amount :</label>
+              <!-- detect change of input and send change to product of quantity-->
+              <input
+                type="number"
+                min="1"
+                class="form-control"
+                id="inputGroupFile01"
+                [(ngModel)]="product.quantity"
+                (ngModelChange)="changeAmount()"
+              />
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form
+    #form="ngForm"
+    class="col-md-4 my-5 align-items-center d-flex"
+    (ngSubmit)="sendName()"
+  >
+    <div class="ms-1">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <!-- send name to FullName -->
+        <input
+          type="text"
+          placeholder="(minimum 3 a characters)"
+          name="FullName"
+          class="form-control"
+          required
+          minlength="3"
+          [(ngModel)]="FullName"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Adress</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Adress"
+          placeholder="(minimum 6 a characters)"
+          required
+          minlength="6"
+          ngModel
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Credit Card Number</label>
+        <input
+          type="number"
+          class="form-control"
+          name="CreditCard"
+          placeholder="(maximum 16-digit number)"
+          required
+          maxlength="16"
+          minlength="16"
+          ngModel
+        />
+      </div>
+      <p>We'll never share your payment details with anyone else</p>
+      <input
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="form.invalid"
+        value="Submit"
+      />
+    </div>
+  </form>
+  <!-- interpolation total from cart component  -->
+  <h3 class="my-3">Total : ${{ total }}</h3>
+</section>

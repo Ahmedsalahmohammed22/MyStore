@@ -1,0 +1,21 @@
+/* product-item-details  */
+img {
+  border-radius: 10px;
+  width: 320px;
+}
+
+.detail-container {
+  display: flex;
+  align-items: center;
+  margin-top: 64px;
+  padding-top: 20px;
+}
+
+.detail-container li {
+  padding: 10px 0 5px;
+}
+
+.select-input {
+  width: 108px;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,18 @@
+<div class="confirmation-container">
+  <div class="confirmation-items">
+    <h2 class="confirmation-header">Success!</h2>
+    <!-- interpolation name from confirmation component  -->
+    <p>Thank you, {{ name }}</p>
+    <!-- interpolation total from confirmation component  -->
+    <p>Your ${{ total }} order is confirmed!</p>
+    <p>Please allow 1-3 business day(s) for shipping</p>
+    <!-- when click button then clear localstorage and will empty cart -->
+    <button
+      class="btn btn-primary"
+      routerLink="/products"
+      (click)="clearCart()"
+    >
+      Back to product list
+    </button>
+  </div>
+</div>

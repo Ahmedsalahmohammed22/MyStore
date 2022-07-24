@@ -1,0 +1,17 @@
+/* product-item  */
+.product-image {
+  list-style-type: none;
+  width: 270px;
+  padding: 20px;
+  margin: 6px 6px;
+  border: 1px solid #33b5e5;
+}
+
+.row {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.test {
+  margin-left: 10px;
+}

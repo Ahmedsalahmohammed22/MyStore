@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-3 col-sm-12 test">
+    <div class="card text-center my-3 ms-2" style="width: 18rem">
+      <!-- interpolation id of product from productItem component  -->
+      <div routerLink="/details/{{ product.id }}">
+        <!-- interpolation url of product from productItem component  -->
+        <img
+          src="{{ product.url }}"
+          class="card-img-top product-image"
+          alt="..."
+        />
+      </div>
+      <div class="card-body">
+        <!-- interpolation name of product from productItem component  -->
+        <h5 class="card-title">{{ product.name }}</h5>
+        <!-- interpolation price of product from productItem component  -->
+        <p>{{ product.price }}</p>
+        <!-- detect change of select and send change to product of amount-->
+        <select
+          class="form-select form-select-sm my-4 select-input"
+          aria-label=".form-select-sm example"
+          [(ngModel)]="amount"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <!-- Event Binding  Allows Us to Send Data from the Template to the Component Class -->
+        <button class="btn btn-primary" (click)="add()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
